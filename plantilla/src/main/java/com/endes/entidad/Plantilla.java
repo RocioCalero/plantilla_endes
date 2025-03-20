@@ -21,11 +21,16 @@ public class Plantilla {
      * Agrega un nuevo empleado a la plantilla.
      *
      * @param empleado El empleado a contratar.
+     * @throws IllegalAccessException Si el empleado tiene el mismo DNI
      * @throws IllegalArgumentException Si el empleado es nulo.
      */
-    public void contratarEmpleado(Empleado empleado) {
+    public void contratarEmpleado(Empleado empleado) throws IllegalAccessException {
         if (empleado == null) {
             throw new IllegalArgumentException("No se puede contratar un empleado nulo");
+        }
+        empleados.add(empleado);
+        if (empleado.getDni() == empleado.getDni()) {
+        	throw new IllegalAccessException("No se puede contratar a un empleado con el mismo DNI que otro");
         }
         empleados.add(empleado);
     }

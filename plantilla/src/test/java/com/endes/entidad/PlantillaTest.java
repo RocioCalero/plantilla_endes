@@ -30,10 +30,12 @@ class PlantillaTest {
         // Se permite el primer contrato
         assertDoesNotThrow(() -> plantilla.contratarEmpleado(tecnico1));
 
-        // Intentar contratar otro empleado con el mismo DNI debería lanzar una excepción
+       // Intentar contratar otro empleado con el mismo DNI debería lanzar una excepción
         Exception ex = assertThrows(IllegalArgumentException.class, () -> plantilla.contratarEmpleado(tecnico2));
 
         // Verificar el mensaje de la excepción
         assertEquals("El empleado con DNI 11111111H ya está contratado", ex.getMessage());
     }
+    
+    
 }

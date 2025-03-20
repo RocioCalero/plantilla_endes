@@ -15,6 +15,7 @@ public class Plantilla {
      */
     public Plantilla() {
         empleados = new ArrayList<>();
+      
     }
 
     /**
@@ -24,10 +25,15 @@ public class Plantilla {
      * @throws IllegalArgumentException Si el empleado es nulo.
      */
     public void contratarEmpleado(Empleado empleado) {
-        if (empleado == null) {
+       if (empleado == null) {
             throw new IllegalArgumentException("No se puede contratar un empleado nulo");
+        }else {
+        	  if (empleado.getDni() == empleado.getDni()) {
+              	throw new IllegalArgumentException("El empleado con DNI 11111111H ya está contratado");
+              }
         }
         empleados.add(empleado);
+      
     }
 
     /**
